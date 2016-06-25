@@ -1,5 +1,10 @@
 angular.module('myApp')
-  .controller('product-detailsCtrl', function($scope) {
+  .controller('detailsCtrl', function($scope, mainService, $stateParams) {
+   mainService.details($stateParams.id)
+      .then(function(response) {
+        $scope.prodDetail = response.data;
+      });
+
 
 
   });

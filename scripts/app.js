@@ -16,9 +16,10 @@
         url:'/blog',
         templateUrl: '../views/blog.html'
       })
-      .state('product-details', {
-        url: '/product-details',
-        templateUrl: '../views/product-details.html'
+      .state('details', {
+        url: '/details/:id',
+        templateUrl: '../views/product-details.html',
+        controller: 'detailsCtrl'
       })
       .state('shop', {
         url: '/shop',

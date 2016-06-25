@@ -1,13 +1,23 @@
 angular.module('myApp')
   .controller('shopCtrl', function($scope, mainService) {
-    $scope.getData = mainService.products()
-      .then(function(response) {
-        console.warn(response.data.data[0]);
-      });
 
 
 
+    $scope.getData = function() {
+      mainService.products()
+        .then(function(response) {
+          console.log(response);
+          $scope.products = response.data;
+        })
+        .catch(function(err) {
+          console.error(err);
+        })
+      }
 
-    console.log(mainService.products());
+      $scope.getData();
+
+
+
+    // console.log(mainService.products());
 
   });

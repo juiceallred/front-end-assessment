@@ -1,14 +1,29 @@
 angular.module('myApp')
   .service('mainService', function($http, $q) {
 
+    var url = 'https://dev-assessment.firebaseio.com/products'
+
     this.products = function () {
-      var url = 'https://dev-assessment.firebaseio.com/products.json'
+
 
       return $http({
         method: 'GET',
-        url: url
-      })
-    }
+        url: url +'.json'
+      }).then(function(response) {
+        return response;
+      });
+    };
+
+    this.details = function(id) {
+      console.log(url + '/' + id + '.json')
+      return $http({
+        method: 'GET',
+        url: url + '/' + id + '.json'
+      }).then(function(response) {
+        console.log(response);
+        return response;
+      });
+    };
 
 
 
